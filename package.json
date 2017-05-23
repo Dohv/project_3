@@ -1,0 +1,21 @@
+{
+  "name": "project_3",
+  "version": "1.0.0",
+  "description": "group project",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dohv/project_3.git"
+  },
+  "author": "Dov Ahmed Jozye",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dohv/project_3/issues"
+  },
+  "homepage": "https://github.com/Dohv/project_3#readme"
+}

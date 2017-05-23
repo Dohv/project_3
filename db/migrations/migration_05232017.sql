@@ -1,0 +1,14 @@
+\connect tada
+
+CREATE TABLE IF NOT EXISTS todos (
+  id BIGSERIAL PRIMARY KEY,
+  notes VARCHAR(1024),
+  complete_status BOOLEAN NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS cities (
+  id BIGSERIAL PRIMARY KEY,
+  name VARCHAR(255),
+  img VARCHAR(255),
+  zipcode INTEGER
+);

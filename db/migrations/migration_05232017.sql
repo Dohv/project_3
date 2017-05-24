@@ -3,7 +3,7 @@
 CREATE TABLE IF NOT EXISTS todos (
   id BIGSERIAL PRIMARY KEY,
   notes VARCHAR(1024),
-  complete_status BOOLEAN NOT NULL
+  complete_status BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE IF NOT EXISTS cities (

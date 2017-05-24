@@ -1,5 +1,8 @@
 \connect tada
 
+DROP TABLE todos;
+DROP TABLE cities;
+
 CREATE TABLE IF NOT EXISTS todos (
   id BIGSERIAL PRIMARY KEY,
   notes VARCHAR(1024),

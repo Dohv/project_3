@@ -1,4 +1,4 @@
-const Todo =  require('/models/tadaModel');
+const Todo =  require('../models/tadaModel');
 
 const tadaController = {};
 

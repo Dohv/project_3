@@ -26,7 +26,7 @@ class SingleTodo extends Component {
         <input 
           type='text'
           value={this.state.inputTodoValue}
-          name='todo'
+          name='notes'
           onChange={this.handleInputTodoChange}
         />
         <input type="submit" value="Update Todo!" />
@@ -44,9 +44,9 @@ class SingleTodo extends Component {
 
   renderTodo() {
     return (
-      <li className="tweed">
+      <li className="todo">
         <button onClick={() => {this.props.handleTodoDelete(this.props.todo.id)}}>X</button>
-        <p>{this.props.todo.todo_text}</p>
+        <p>{this.props.todo.notes}</p>
         <button onClick={() => {
           this.setState({isBeingEdited: true})
         }}>Edit Todo</button>

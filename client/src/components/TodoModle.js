@@ -21,12 +21,11 @@ componentDidMount() {
   }
 
    fetchAllTodos() {
-    fetch('http://localhost:3001/api/todo')
+    fetch('/api/todo')
       .then((res) => {
-        console.log(res);
         return res.json()
       }).then((resJson) => {
-        console.log(resJson);
+        console.log(resJson.data.todos);
         this.setState({
           todos: resJson.data.todos,
         })
@@ -40,7 +39,7 @@ componentDidMount() {
 
   handleTodoSubmit(event) {
     event.preventDefault();
-
+    console.log(event.target.notes.value)
     fetch('/api/todo', {
       method: 'POST',
       headers: {
@@ -54,8 +53,9 @@ componentDidMount() {
       return res.json();
     }).then((jsonRes) => {
       this.setState((prevState) => {
+        console.log(prevState.todos);
         return {
-          todos: prevState.todos.concat(jsonRes.data.todos),
+          todos: prevState.todos.concat(jsonRes.data.todo),
           inputTodoValue: '',
         }
       })

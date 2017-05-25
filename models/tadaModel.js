@@ -18,12 +18,13 @@ Todo.findById = (id) => {
 };
 
 Todo.create = (todo) => {
+  console.log(todo)
   return db.one(
     `
-    INSERT INTO todos (notes, complete_status)
-    VALUES ($1, $2)
+    INSERT INTO todos (notes)
+    VALUES ($1)
     RETURNING *`,
-    [todo.notes, todo.complete_status]
+    [todo.notes]
   );
 };
 

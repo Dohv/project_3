@@ -30,8 +30,9 @@ tadaController.show = (req, res) => {
 };
 
 tadaController.create = (req, res) => {
+  console.log(req.body)
   Todo.create({
-    todo: req.body.todo,
+    notes: req.body.todo,
   })
   .then(todo => {
     res.json({confirmation: 'To Do added!', data: { todo }});
@@ -44,7 +45,7 @@ tadaController.create = (req, res) => {
 
 tadaController.update = (req, res) => {
   Todo.update({
-    todo: req.body.todo,
+    notes: req.body.todo,
   }, req.params.id)
     .then(todo => {
       res.json({

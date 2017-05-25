@@ -3,8 +3,9 @@ const db = require('../db/config');
 const Todo = {};
 
 Todo.findAll = () => {
+  console.log('hello world');
   return db.query(
-    `SELECT * FROM todos`
+    'SELECT * FROM todos'
   );
 };
 

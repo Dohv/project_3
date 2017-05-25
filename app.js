@@ -28,9 +28,16 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-/* tweeds API route */
+/* todos API route */
 const todoRoutes = require('./routes/todoroutes');
 app.use('/api/todo', todoRoutes);
+
+/* cities API route*/
+
+const cityRoutes = require('./routes/cituRoutes');
+app.use('/api/city', cityRoutes);
+
+
 
 /* handling 404 */
 app.get('*', function(req, res) {

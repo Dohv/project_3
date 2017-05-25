@@ -8,7 +8,7 @@ City.findAll = () => {
   );
 };
 
-Todo.findById = (id) => {
+City.findById = (id) => {
   return db.oneOrNone(
     `
     SELECT * FROM cities

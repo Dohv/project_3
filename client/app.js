@@ -34,7 +34,7 @@ app.use('/api/todo', todoRoutes);
 
 /* cities API route*/
 
-const cityRoutes = require('./routes/cituRoutes');
+const cityRoutes = require('./routes/cityRoutes');
 app.use('/api/city', cityRoutes);
 
 

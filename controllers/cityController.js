@@ -7,7 +7,7 @@ cityController.index = (req, res) => {
     .then(cities => {
       res.json({
         confirmation: 'Good to go',
-        data: {city},
+        data: {cities},
       });
     })
     .catch(err => {

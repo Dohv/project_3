@@ -4,7 +4,7 @@ const Todo = {};
 
 Todo.findAll = () => {
   return db.query(
-    `SELECT * FROM todos`
+    'SELECT * FROM todos'
   );
 };
 

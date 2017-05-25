@@ -3,6 +3,7 @@ const tadaController = require('../controllers/tadaController');
 
 const todoRoutes = express.Router();
 
+
 todoRoutes.get('/', tadaController.index);
 todoRoutes.get('/:id', tadaController.show);
 todoRoutes.post('/', tadaController.create);

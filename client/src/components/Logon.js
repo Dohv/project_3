@@ -19,12 +19,13 @@ class Logon extends Component {
 }
 
 componentDidMount() {
-  fetch('http://localhost:3001/api/todo')
+  fetch('/api/city')
     .then((response) => {
       console.log(response);
       return response.json()
     })
     .then((responseJson) => {
+      
       return {
         city: responseJson.cities,
       }

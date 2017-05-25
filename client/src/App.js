@@ -6,6 +6,7 @@ import {
 import './App.css';
 import Logon from './components/Logon';
 import TodoModle from './components/TodoModle';
+import WeatherModule from './components/WeatherModule';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
 
         />
         <br />
+        <WeatherModule />
         <TodoModle />
       </div>
     );

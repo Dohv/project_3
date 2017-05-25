@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import Logon from './components/Logon';
 
 class Cities extends Component {
   render () {
     return (
       <div>
+      <select>
+        <option>Select City</option>
         {this.props.cities.map((city) => {
           return (
-            <Logon 
-              key={city.id}
-              city={city.name}
-            />
+            <option value='cityName' key={city.id}>
+              {city.name}
+            </option>
           )
         })}
+      </select>
       </div>
     )
   }

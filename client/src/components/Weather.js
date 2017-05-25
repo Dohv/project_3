@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
 
 
-class Data extends Component {
-  render() {
-    if (this.props.apiLoaded === true) {
-      return (
-        <div id='data-div'>
-          <p id='city-name'>{this.props.weatherData.name}</p>
-          <p id='main-temp'>{Math.floor(this.props.weatherData.main.temp)}°</p>
-          <p id='conditions'>{this.props.weatherData.weather[0].description}</p>
-          <div id='min-max'>
-            <p id='min-temp'>Min: {Math.floor(this.props.weatherData.main.temp_min)}°</p>
-            <p id='max-temp'>Max: {Math.floor(this.props.weatherData.main.temp_max)}°</p>
-          </div>
-        </div>
-      )
-    } else {
-      return null;
-    }
+class Weather extends Component {
+   render() {
+    return(
+      <div className='weather-info'>
+        <span className='city'>{this.props.city}</span>
+        <span className='currT'>Current Temperature</span>
+        <span className='tempNow'>{this.props.curr_temp}</span>
+        <span className='desc'>{this.props.desc}</span>
+        <span className='minT'>Min Temp</span>
+        <span className='min'>{this.props.min_temp}</span>
+        <span className='maxT'>Max Temp</span>
+        <span className='max'>{this.props.max_temp}</span>
+      </div>
+    )
   }
 }
 
-export default Data;
+export default Weather;

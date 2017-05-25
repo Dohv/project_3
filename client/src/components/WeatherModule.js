@@ -1,60 +1,84 @@
 import React, { Component } from 'react';
-import './App.css';
-import Input from './components/WeatherInput';
-import Data from './components/Weather';
+import WeatherInput from './WeatherInput';
+import Weather from './Weather';
 
-class App extends Component {
-constructor(props) {
-  super(props);
-  this.state = {
-    weatherData: null,
-    city: null,
-    apiLoaded: false,
+
+class WeatherModule extends Component {
+  constructor(props) {
+    super(props); 
+      this.state = {
+        zip: '' ,
+        city: '',
+        min_temp: '',
+        max_temp: '',
+        desc: '',
+        curr_temp: '',
+        apiDataLoaded: false
+      } 
+      this.handleChange=this.handleChange.bind(this);
+      this.handleSubmit=this.handleSubmit.bind(this);
   }
-  this.fetchData = this.fetchData.bind(this);
-  this.handleCity = this.handleCity.bind(this);
+
+submit() {
+  console.log(this.state.zip);
+  fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${this.state.zip},us&units=imperial&appid=54885ece079c87bb919af1bdcdf3be16`)
+  .then((response) => {
+    console.log(response);
+    return response.json();
+  }).then((jsonResponse) => {
+    console.log(jsonResponse);
+    this.setState({
+      city: jsonResponse.name,
+      min_temp: Math.floor ((jsonResponse.main.temp_min )),
+      max_temp: Math.floor  ((jsonResponse.main.temp_max )),
+      curr_temp: Math.floor (( jsonResponse.main.temp)),
+      desc: jsonResponse.weather[0].description,
+      apiDataLoaded: true,
+    })
+  })
 }
 
-fetchData(e) {
-  e.preventDefault();
-  let key = '54885ece079c87bb919af1bdcdf3be16';
-  let city = this.state.city;
-  console.log('in fetch');
-  console.log(city);
-  fetch(`api.openweathermap.org/data/2.5/weather?q={city name},us&units=imperial&appid=${key}`)
-  .then((api) => {
-    api.json()
-    .then((json) => {
-      console.log(json);
-      this.setState({
-        weatherData: json,
-        apiLoaded: true
-      });
-      console.log(this.state.weatherData);
-    });
+
+handleChange(e) {
+  console.log('hi');
+  this.setState({
+    zip: e.target.value
   });
-};
-
-handleCity(e){
-  this.setState({city: e.target.value});
-  console.log(this.state.city);
 }
+
+ handleSubmit(e) {
+    e.preventDefault();
+    this.submit();
+  }
+
+  showTemp() {
+    console.log(this.state.apiDataLoaded);
+    if(this.state.apiDataLoaded) {
+      return <Weather
+        city={this.state.city}
+        min_temp={this.state.min_temp}
+        max_temp={this.state.max_temp}
+        curr_temp={this.state.curr_temp}
+        desc={this.state.desc}
+        />
+    }
+  }
 
   render() {
+    console.log('render');
     return (
       <div className="App">
-        <div id='input-container'>
-          <Input fetch={this.fetchData}
-          handleCity={this.handleCity} 
-          value={this.state.city}/>
-        </div>
-        <hr/>
-        <div id='data-container'>
-          <Data weatherData={this.state.weatherData} apiLoaded={this.state.apiLoaded}/>
-        </div>
+      
+        <WeatherInput
+        zip={this.state.zip}
+        handleSubmit={this.handleSubmit}
+        handleChange={this.handleChange}
+        />
+        {this.showTemp()}
+      
       </div>
-    )
+    );
   }
 }
 
-export default App;
+export default WeatherModule;

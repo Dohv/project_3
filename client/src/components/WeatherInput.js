@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 
-class Input extends Component {
-  render() {
-    return (
-      <form id='input-form' onSubmit={this.props.fetch}>
-        <input id='city-input' 
-        type='text' 
-        value={this.props.city}
-        placeholder='City Name'
-        onChange={this.props.handleCity} />
-        <input id='submit-btn' 
-        type='submit'/>
-      </form>
+class WeatherInput extends Component {
+ render(){
+    return(
+      <form className='info' onSubmit={this.props.handleSubmit}>
+        <label>Enter City
+          <input 
+          type='text'
+          name='city' 
+          className='city' 
+          value={this.props.city}
+          onChange={this.props.handleChange}
+          />
+        <button className='button'>SUBMIT</button>
+      </label>
+    </form>
     )
   }
 }
 
-export default Input;
+
+export default WeatherInput;

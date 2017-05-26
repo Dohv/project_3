@@ -14,9 +14,10 @@ class App extends Component {
     this.state = {
       cityData: [],
       name: '',
+      currCity: '',
       // todoData: [],
     }
-     this.handleNameChange = this.handleNameChange.bind(this);
+     this.handleFormChange = this.handleFormChange.bind(this);
   }
 
   componentDidMount() {
@@ -33,15 +34,18 @@ class App extends Component {
         this.setState({
           cityData: resJson.data.cities,
           name: '',
+          
         })
       });
   }
 
-   handleNameChange(event) {
+   handleFormChange(event) {
      event.preventDefault();
      console.log(this.state.name);
+     console.log(this.state.currCity);
     this.setState({
       name: event.target.value,
+      currCity: event.target.city.value,
     });
    }
 
@@ -51,9 +55,8 @@ class App extends Component {
       <div className="App">
 
         <Logon 
-          handleNameChange={this.handleNameChange} 
+          handleFormChange={this.handleFormChange} 
           cities={this.state.cityData}
-          
         />
         {/*
         <NY name={this.name}/>

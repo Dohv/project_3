@@ -7,7 +7,6 @@ class WeatherModule extends Component {
   constructor(props) {
     super(props); 
       this.state = {
-        zip: this.props.zipcode,
         city: '',
         min_temp: '',
         max_temp: '',
@@ -21,7 +20,7 @@ class WeatherModule extends Component {
 
 submit() {
   console.log(this.state.zip);
-  fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${this.state.zip},us&units=imperial&appid=54885ece079c87bb919af1bdcdf3be16`)
+  fetch(`http://api.openweathermap.org/data/2.5/weather?city=${this.state.city},us&units=imperial&appid=54885ece079c87bb919af1bdcdf3be16`)
   .then((response) => {
     console.log(response);
     return response.json();
@@ -42,7 +41,7 @@ submit() {
 handleChange(e) {
   console.log('hi');
   this.setState({
-    zip: e.target.value
+    city: e.target.value
   });
 }
 

@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 
 class Name extends Component {
   
-  tester() {
-    console.log('hello');
-  }
-  
   render() {
+    console.log('hello');
     return (
       <div>
         <input 
@@ -14,7 +11,7 @@ class Name extends Component {
         name='name' 
         placeholder='Name'
         className='name'
-        onSubmit={this.props.handleNameChange} />
+        onSubmit={() => {this.props.handleNameChange}} />
       </div>
     )
   }

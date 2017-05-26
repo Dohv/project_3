@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import '../App.css';
 import Cities from './Cities';
-import Name from './Name';
+//import Name from './Name';
 
 class Logon extends Component {
 
   render () {
     return (
       <div id='login'>
-        <form id='login-form'>
-         <Name handleNameChange={this.props.handleNameChange}/>
+        <form id='login-form' onSubmit={this.props.handleNameChange}>
+          <input 
+          type='text' 
+          name='name' 
+          placeholder='Name'
+          className='name'
+          />
+           
           <br /><br />
           <Cities cities={this.props.cities}/>
         </form>

@@ -38,22 +38,23 @@ class App extends Component {
   }
 
    handleNameChange(event) {
-     console.log(event);
-    event.preventDefault();
+     event.preventDefault();
+     console.log('test');
     this.setState({
       name: event.target.value,
     });
    }
 
-  tester() {
-    console.log(this.state.handleNameChange);
-  }
   
   render() {
     return (
       <div className="App">
 
-        <Logon handleNameChange={this.state.handleNameChange} cities={this.state.cityData}/>
+        <Logon 
+          handleNameChange={this.state.handleNameChange} 
+          cities={this.state.cityData}
+          
+        />
         {/*
         <NY name={this.name}/>
         <SF name={this.name}/>

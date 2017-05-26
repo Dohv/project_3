@@ -6,7 +6,7 @@ class Header extends Component {
   render() {
     return (
       <header>
-        {/*<TodoModle />*/}
+        {/*<TodoModle todoData={this.props.todoData} />*/}
         <WeatherModule cityData={this.props.cityData} />
       </header>
     );

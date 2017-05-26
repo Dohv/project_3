@@ -39,7 +39,7 @@ class App extends Component {
 
    handleNameChange(event) {
      event.preventDefault();
-     console.log('test');
+     console.log(this.state.name);
     this.setState({
       name: event.target.value,
     });
@@ -51,7 +51,7 @@ class App extends Component {
       <div className="App">
 
         <Logon 
-          handleNameChange={this.state.handleNameChange} 
+          handleNameChange={this.handleNameChange} 
           cities={this.state.cityData}
           
         />

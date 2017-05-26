@@ -8,7 +8,7 @@ class Cities extends Component {
         <option>Select City</option>
         {this.props.cities.map((city) => {
           return (
-            <option value='cityName' key={city.id}>
+            <option value={city.name} key={city.id}>
               {city.name}
             </option>
           )

@@ -18,14 +18,26 @@
   font-size: large;
 }
 
-#login {
+body {
   display: flex;
   justify-content: center;
   align-items: center;
-  align-content: stretch;
-  background: url('./assets/slack-imgs.gif');
+  background: url('./assets/slack-imgs.gif') no-repeat;
   background-size: cover;
-  
+  height: 100%; 
+  width: 100%;
+}
+
+select {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+}
+
+input.name {
+  top: 45%;
+  left: 45%;
+  position: absolute;
 }
 
 /*#login-form {

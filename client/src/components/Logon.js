@@ -1,36 +1,17 @@
 import React, { Component } from 'react';
 import '../App.css';
 import Cities from './Cities';
+import Name from './Name';
 
 class Logon extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      city: [],
-    }
-  }
 
-componentDidMount() {
-  fetch('http://localhost:3001/api/city')
-    .then((response) => {
-      console.log(response);
-      return response.json()
-    }).then((responseJson) => {
-      console.log(responseJson.data.cities);
-      this.setState({
-        city: responseJson.data.cities
-      })
-    });
-} 
-
-  
   render () {
     return (
       <div id='login'>
         <form id='login-form'>
-          <input type='text' name='name' id='name' placeholder='Name'>{this.props.name}</input>
+         <Name handleNameChange={this.props.handleNameChange}/>
           <br /><br />
-          <Cities cities={this.state.city}/>
+          <Cities cities={this.props.cities}/>
         </form>
       </div>
     )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import WeatherInput from './WeatherInput';
+//import WeatherInput from './WeatherInput';
 import Weather from './Weather';
 
 
@@ -7,7 +7,7 @@ class WeatherModule extends Component {
   constructor(props) {
     super(props); 
       this.state = {
-        zip: '' ,
+        zip: this.props.zipcode,
         city: '',
         min_temp: '',
         max_temp: '',
@@ -69,11 +69,11 @@ handleChange(e) {
     return (
       <div className="App">
       
-        <WeatherInput
+       {/* <WeatherInput
         zip={this.state.zip}
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
-        />
+        /> */}
         {this.showTemp()}
       
       </div>

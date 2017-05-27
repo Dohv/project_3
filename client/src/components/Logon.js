@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import '../App.css';
-//import Cities from './Cities';
-//import Name from './Name';
 
 class Logon extends Component {
 
   render () {
-    console.log(this.props);
     return (
       <div id='login'>
         <form id='login-form' onSubmit={this.props.handleFormChange}>

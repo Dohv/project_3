@@ -7,7 +7,7 @@ import './App.css';
 import Logon from './components/Logon';
 
 //import Header from './components/Header';
-import Footer from './components/Footer';
+
 import NY from './components/NY';
 import SF from './components/SF';
 import DE from './components/DE';
@@ -45,6 +45,7 @@ class App extends Component {
       });
   }
 
+  
    handleFormChange(event) {
      console.log(event.target.name.value);
      console.log(event.target.city.value);
@@ -52,7 +53,8 @@ class App extends Component {
     this.setState({
       name: event.target.name.value,
       currCity: event.target.city.value,
-    });
+    })
+    
    }
 
 
@@ -70,16 +72,15 @@ class App extends Component {
             />
               <Header cityData={this.state.cityData} />
           */}
+                <Route exact path="/" render={() => <Logon handleFormChange={this.handleFormChange} cities={this.state.cityData}  />} />
               <main>
                 {/*<Route path="/" component={Logon} />*/}
-                <Route exact path="/" render={() => <Logon handleFormChange={this.handleFormChange} cities={this.state.cityData}  />} />
-                <Route exact path="/Newyork" component={NY} />
-                <Route exact path="/Sanfrancisco" component={SF} />
-                <Route exact path="/Chicago" component={CI} />
-                <Route exact path="/Miami" component={MI} />
-                <Route exact path="/Denver" component={DE} />
+                <Route  path="/Newyork" component={NY} />
+                <Route  path="/Sanfrancisco" component={SF} />
+                <Route  path="/Chicago" component={CI} />
+                <Route  path="/Miami" component={MI} />
+                <Route  path="/Denver" component={DE} />
               </main>
-            <Footer />
         </div>
       </Router>
     );

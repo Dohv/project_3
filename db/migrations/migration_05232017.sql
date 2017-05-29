@@ -1,4 +1,4 @@
-\connect tada
+
 
 DROP TABLE todos;
 DROP TABLE cities;

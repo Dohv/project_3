@@ -1,4 +1,4 @@
-\c tada;
+
 
 INSERT INTO cities (name, img, zipcode) VALUES
   ('New York', 'https://i.ytimg.com/vi/Fl7V5dX5IrM/maxresdefault.jpg', 10025),

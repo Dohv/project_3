@@ -13,7 +13,7 @@ class Logon extends Component {
             <option>Select City</option>
             {this.props.cities.map((city) => {
               return (
-                <option value={city.name} key={city.id} href={`/${city.name}`}>
+                <option value={city.name} key={city.id}>
                   {city.name}
                 </option>
               )

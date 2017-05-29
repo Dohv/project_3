@@ -18,7 +18,7 @@ class WeatherModule extends Component {
       this.handleSubmit=this.handleSubmit.bind(this);
   }
 
-submit() {
+componentDidMount() {
   console.log(this.state.zip);
   fetch(`http://api.openweathermap.org/data/2.5/weather?city=${this.state.city},us&units=imperial&appid=54885ece079c87bb919af1bdcdf3be16`)
   .then((response) => {

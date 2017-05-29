@@ -6,7 +6,7 @@ import {
 import './App.css';
 import Logon from './components/Logon';
 
-//import Header from './components/Header';
+
 
 import NY from './components/NY';
 import SF from './components/SF';
@@ -22,7 +22,7 @@ class App extends Component {
       cityData: [],
       name: '',
       currCity: '',
-      // todoData: [],
+      todoData: [],
     }
      this.handleFormChange = this.handleFormChange.bind(this);
      this.setState = this.setState.bind(this);
@@ -31,7 +31,19 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchAllCities();
-    // this.fetchAllTodos();
+    this.fetchAllTodos();
+  }
+
+  fetchAllTodos() {
+    fetch('http://localhost:3001/api/todo')
+      .then((res) => {
+        return res.json()
+      }).then((resJson) => {
+        this.setState({
+          todoData: resJson.data.cities,
+          
+        })
+      });
   }
 
   fetchAllCities() {
@@ -83,16 +95,15 @@ class App extends Component {
               handleFormChange={this.handleFormChange} 
               cities={this.state.cityData}
             />
-              <Header cityData={this.state.cityData} />
+              
           */}
-                <Route exact path="/" render={() => <Logon handleFormChange={this.handleFormChange} cities={this.state.cityData}  currtCity={this.state.currCity}/>}  seestate={this.seeState} route={this.selectCityRoute}/>
+                <Route exact path="/" render={() => <Logon handleFormChange={this.handleFormChange} cities={this.state.cityData}  currtCity={this.state.currCity}  seestate={this.seeState} route={this.selectCityRoute} />} /> 
               <main>
-                {/*<Route path="/" component={Logon} />*/}
-                <Route  path="/New york" component={NY} />
-                <Route  path="/San Francisco" component={SF} />
-                <Route  path="/Chicago" component={CI} />
-                <Route  path="/Miami" component={MI} />
-                <Route  path="/Denver" component={DE} />
+                <Route  path="/New york" render={() => <NY cities={this.state.cityData} todos={this.state.todoData} name={this.state.name} />} />
+                <Route  path="/San Francisco" render={() => <SF cities={this.state.cityData} todos={this.state.todoData} name={this.state.name} />} />
+                <Route  path="/Chicago" render={() => <CI cities={this.state.cityData} todos={this.state.todoData} name={this.state.name} />} />
+                <Route  path="/Miami" render={() => <MI cities={this.state.cityData} todos={this.state.todoData} name={this.state.name} />} />
+                <Route  path="/Denver" render={() => <DE cities={this.state.cityData} todos={this.state.todoData} name={this.state.name} />} />
               </main>
         </div>
       </Router>

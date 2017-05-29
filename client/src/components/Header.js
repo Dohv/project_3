@@ -7,7 +7,7 @@ class Header extends Component {
     return (
       <header>
         {/*<TodoModle todoData={this.props.todoData} />*/}
-        <WeatherModule cityData={this.props.cityData} />
+        <WeatherModule cityData={this.props.cities} />
       </header>
     );
   };

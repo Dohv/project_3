@@ -90,14 +90,7 @@ class App extends Component {
     return (
        <Router>
           <div className="App">
-            {/*
-            <Logon 
-              handleFormChange={this.handleFormChange} 
-              cities={this.state.cityData}
-            />
-              
-          */}
-                <Route exact path="/" render={() => <Logon handleFormChange={this.handleFormChange} cities={this.state.cityData}  currtCity={this.state.currCity}  seestate={this.seeState} route={this.selectCityRoute} />} /> 
+                <Route exact path="/" render={() => <Logon handleFormChange={this.handleFormChange} cities={this.state.cityData}  currCity={this.state.currCity}  seestate={this.seeState} route={this.selectCityRoute} />} /> 
               <main>
                 <Route  path="/New york" render={() => <NY cities={this.state.cityData} todos={this.state.todoData} name={this.state.name} />} />
                 <Route  path="/San Francisco" render={() => <SF cities={this.state.cityData} todos={this.state.todoData} name={this.state.name} />} />
@@ -105,6 +98,7 @@ class App extends Component {
                 <Route  path="/Miami" render={() => <MI cities={this.state.cityData} todos={this.state.todoData} name={this.state.name} />} />
                 <Route  path="/Denver" render={() => <DE cities={this.state.cityData} todos={this.state.todoData} name={this.state.name} />} />
               </main>
+          
         </div>
       </Router>
     );

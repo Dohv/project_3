@@ -25,8 +25,8 @@ class Logon extends Component {
             placeholder='Name'
             className='name'
             />
-            <button seestate={this.props.seeState}>Go</button>
           </form>
+          <Link className='go' to={`/${this.props.currCity}`}>-></Link>
         </div>
       </div>
     )

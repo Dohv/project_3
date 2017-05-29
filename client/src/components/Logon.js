@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import { Link } from 'react-router-dom';
 
 class Logon extends Component {
 
@@ -7,25 +8,24 @@ class Logon extends Component {
     return (
       <div id='login'>
         <div className='layer'>
-          <form id='login-form' onSubmit={this.props.handleFormChange}>
+          <form id='login-form' onSubmit={this.props.handleFormChange} >
+            <select name='city'>
+            <option>Select City</option>
+            {this.props.cities.map((city) => {
+              return (
+                <option value={city.name} key={city.id} href={`/${city.name}`}>
+                  {city.name}
+                </option>
+              )
+            })}
+          </select>
             <input 
             type='text' 
             name='name' 
             placeholder='Name'
             className='name'
             />
-            
-            <br /><br />
-            <select name='city'>
-            <option>Select City</option>
-            {this.props.cities.map((city) => {
-              return (
-                <option value={city.name} key={city.id}>
-                  {city.name}
-                </option>
-              )
-            })}
-          </select>
+            <button seestate={this.props.seeState}>Go</button>
           </form>
         </div>
       </div>
@@ -36,3 +36,5 @@ class Logon extends Component {
 
 
 export default Logon;
+            
+            

@@ -74,8 +74,16 @@ div.ci {
 
 select {
   position: absolute;
-  top: 50%;
+  top: 38%;
   left: 45%;
+  background: rgba(0,0,0,0);
+  font-size: x-large;
+  color: white;
+  border-top-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-bottom-color: white;
+  text-align: center;
 }
 
 input.name {

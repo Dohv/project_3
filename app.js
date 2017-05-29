@@ -13,7 +13,7 @@ app.listen(PORT, function() {
 });
 
 /* setting static file */
-app.use('/static', express.static(path.join(__dirname, 'public')));
+app.use('/static', express.static(path.join(__dirname, 'build')));
 /* setting up cors */
 app.use(cors());
 /* setting up logger */
@@ -21,12 +21,6 @@ app.use(logger('dev'));
 /* setting up body parser */
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-
-/* setting routes */
-/* ====================== INDEX ROUTE ========= */
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/public/index.html');
-});
 
 /* todos API route */
 const todoRoutes = require('./routes/todoroutes');
@@ -36,6 +30,14 @@ app.use('/api/todo', todoRoutes);
 
 const cityRoutes = require('./routes/cityRoutes');
 app.use('/api/city', cityRoutes);
+
+/* setting routes */
+/* ====================== INDEX ROUTE ========= */
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/build/index.html');
+});
+
+
 
 
 

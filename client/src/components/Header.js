@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-//import TodoModle from './TodoModle';
-import WeatherModule from './WeatherModule';
+import TodoModle from './TodoModle';
 
 class Header extends Component {
   render() {
     return (
       <header>
-        {/*<TodoModle todoData={this.props.todoData} />*/}
-        <WeatherModule cityData={this.props.cities} />
+        <TodoModle todoData={this.props.todoData} />
+          {this.props.city}
+          {this.props.min}
+          {this.props.max}
+          {this.props.temp}
+          {this.props.desc}
+
       </header>
     );
   };

@@ -21,7 +21,7 @@ componentDidMount() {
   }
 
    fetchAllTodos() {
-    fetch('/api/todo')
+    fetch('http://localhost:3001/api/todo')
       .then((res) => {
         return res.json()
       }).then((resJson) => {
@@ -40,7 +40,7 @@ componentDidMount() {
   handleTodoSubmit(event) {
     event.preventDefault();
     console.log(event.target.notes.value)
-    fetch('/api/todo', {
+    fetch('http://localhost:3001/api/todo', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ componentDidMount() {
   handleTodoEdit(event) {
     event.preventDefault();
 
-      fetch(`/api/todo/${event.target.id.value}`, {
+      fetch(`http://localhost:3001/api/todo/${event.target.id.value}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -80,7 +80,7 @@ componentDidMount() {
   }
 
   handleTodoDelete(todoId) {
-    fetch(`/api/todo/${todoId}`, {
+    fetch(`http://localhost:3001/api/todo/${todoId}`, {
       method: 'DELETE',
     })
     .then((res) => {

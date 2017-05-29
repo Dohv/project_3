@@ -23,10 +23,10 @@ class App extends Component {
       name: '',
       currCity: '',
       todoData: [],
+
     }
      this.handleFormChange = this.handleFormChange.bind(this);
      this.setState = this.setState.bind(this);
-     this.selectCityRoute = this.selectCityRoute.bind(this);
   }
 
   componentDidMount() {
@@ -35,7 +35,7 @@ class App extends Component {
   }
 
   fetchAllTodos() {
-    fetch('http://localhost:3001/api/todo')
+    fetch('api/todo')
       .then((res) => {
         return res.json()
       }).then((resJson) => {
@@ -70,21 +70,12 @@ class App extends Component {
     })
   }
 
+
   seeState() {
     console.log(this.state.name);
    console.log(this.state.currCity);
    
   }
-
-  selectCityRoute() {
-    if (this.state.currCity === 'New York')
-    <Link to='/Newyork'>Go</Link>
-  }
-
-
-
-   
-
   
   render() {
     return (
@@ -92,8 +83,8 @@ class App extends Component {
           <div className="App">
                 <Route exact path="/" render={() => <Logon handleFormChange={this.handleFormChange} cities={this.state.cityData}  currCity={this.state.currCity}  seestate={this.seeState} route={this.selectCityRoute} />} /> 
               <main>
-                <Route  path="/New york" render={() => <NY cities={this.state.cityData} todos={this.state.todoData} name={this.state.name} />} />
-                <Route  path="/San Francisco" render={() => <SF cities={this.state.cityData} todos={this.state.todoData} name={this.state.name} />} />
+                <Route  path="/NewYork" render={() => <NY cities={this.state.cityData} todos={this.state.todoData} name={this.state.name} currCity={this.state.currCity}  />} />
+                <Route  path="/SanFrancisco" render={() => <SF cities={this.state.cityData} todos={this.state.todoData} name={this.state.name} />} />
                 <Route  path="/Chicago" render={() => <CI cities={this.state.cityData} todos={this.state.todoData} name={this.state.name} />} />
                 <Route  path="/Miami" render={() => <MI cities={this.state.cityData} todos={this.state.todoData} name={this.state.name} />} />
                 <Route  path="/Denver" render={() => <DE cities={this.state.cityData} todos={this.state.todoData} name={this.state.name} />} />

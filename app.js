@@ -34,7 +34,7 @@ app.use('/api/city', cityRoutes);
 /* setting routes */
 /* ====================== INDEX ROUTE ========= */
 app.get('/', function(req, res) {
-  res.sendFile(__dirname + 'client/build/index.html');
+  res.sendFile(__dirname + '/client/build/index.html');
 });
 
 

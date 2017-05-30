@@ -4,13 +4,19 @@ import TodoModle from './TodoModle';
 class Header extends Component {
   render() {
     return (
-      <header>
+      <header className='todoModle'>
         <TodoModle todoData={this.props.todoData} />
-          {this.props.city}
-          {this.props.min}
-          {this.props.max}
-          {this.props.temp}
-          {this.props.desc}
+          <nav className='weather'>
+            <p>{this.props.city}</p>
+            <br />
+            <p>Current Temp: {this.props.temp}</p>
+            <br />
+            <p>Today's Low: {this.props.min}</p>
+            <br />
+            <p>Today's high: {this.props.max}</p>
+            <br />
+            <p>Weather ourside: {this.props.desc}</p>
+          </nav>
 
       </header>
     );

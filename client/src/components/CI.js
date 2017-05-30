@@ -38,7 +38,6 @@ componentDidMount() {
     return (
       <div className='ci'>
        <Header  city={this.state.city} min={this.state.min_temp} max={this.state.max_temp} temp={this.state.curr_temp} desc={this.state.desc}/>
-      <p>Welcome to Chicago</p>
       <h1>Hello, {this.props.name}!</h1>
       <Footer />
       </div>

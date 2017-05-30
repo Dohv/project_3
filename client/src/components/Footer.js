@@ -6,7 +6,6 @@ class Footer extends Component {
     return (
       <div>
         <Nav />
-        <p>Made by Dov</p>
       </div>
     );
   };

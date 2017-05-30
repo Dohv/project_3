@@ -32,7 +32,7 @@ div.ny {
   background-size: cover;
   height: 100%;
   width: 100%;
-  padding-bottom: 616px;
+  padding-bottom: 654px;
   padding-top: 10px;
 }
 
@@ -41,7 +41,7 @@ div.mi {
   background-size: cover;
   height: 100%;
   width: 100%;
-  padding-bottom: 616px;
+  padding-bottom: 654px;
   padding-top: 10px;
 }
 
@@ -50,7 +50,7 @@ div.de {
   background-size: cover;
   height: 100%;
   width: 100%;
-  padding-bottom: 616px;
+  padding-bottom: 654px;
   padding-top: 10px;
 }
 
@@ -59,7 +59,7 @@ div.sf {
   background-size: cover;
   height: 100%;
   width: 100%;
-  padding-bottom: 616px;
+  padding-bottom: 654px;
   padding-top: 10px;
 }
 
@@ -68,7 +68,7 @@ div.ci {
   background-size: cover;
   height: 100%;
   width: 100%;
-  padding-bottom: 616px;
+  padding-bottom: 654px;
   padding-top: 10px;
 }
 
@@ -117,12 +117,42 @@ input.name {
   to { transform: rotate(360deg); }
 }
 
-todoModle {
-  hight: 400px;
-  width: 500px;
+div.todoModle {
+  hight: 100px;
+  width: 200px;
   border: 1px border solid black;
+  overflow: scroll;
+}
+nav.weather {
+  position: absolute;
+  left: 90%;
+  top: 5%;
+  color: white;
+}
+nav.navBar {
+  position: absolute;
+  left: 50%;
+  top: 90%;
 }
 
 p {
+  color: white;
+}
+
+h1 {
+  position: absolute;
+  left: 35%;
+  top: 45%;
+  color: white;
+  font-size: 80px;
+}
+ul {
+  display: flex;
+  list-style: none;
+}
+
+a {
+  display: flex;
+  margin-right: 20px;
   color: white;
 }

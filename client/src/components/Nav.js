@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 class Nav extends Component {
   render() {
     return (
-      <nav>
+      <nav className='navBar'>
         <ul>
           <li><Link to="/Newyork">New York</Link></li>
           <li><Link to="/Miami">Miami</Link></li>

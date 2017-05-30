@@ -13,7 +13,7 @@ app.listen(PORT, function() {
 });
 
 /* setting static file */
-app.use('/static', express.static(path.join(__dirname, 'build')));
+app.use('/build', express.static(path.join(__dirname, 'build')));
 /* setting up cors */
 app.use(cors());
 /* setting up logger */

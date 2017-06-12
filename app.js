@@ -27,9 +27,9 @@ const todoRoutes = require('./routes/todoroutes');
 app.use('/api/todo', todoRoutes);
 
 /* cities API route*/
-
 const cityRoutes = require('./routes/cityRoutes');
 app.use('/api/city', cityRoutes);
+
 
 /* setting routes */
 /* ====================== INDEX ROUTE ========= */

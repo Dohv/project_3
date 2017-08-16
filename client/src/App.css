@@ -1,4 +1,4 @@
-body, html {
+body, html, div.app{
   height: 100%;
 }
 
@@ -6,16 +6,15 @@ body, html {
 
 
 div#login {
- 
+  position: absolute;
   justify-content: center;
   align-items: center;
-  background: url('./assets/slack-imgs.gif') ;
+  background-image: url('./assets/slack-imgs.gif') ;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100%; 
-  width: 100%;
-  padding-bottom: 802px;
+  height: 100% !important;
+  width: 100% !important;
 }
 
 div.layer {
@@ -27,49 +26,45 @@ div.layer {
     height: 100%;
 }
 
-div.ny {
+.ny {
+  position: absolute;
   background: url('https://i.ytimg.com/vi/Fl7V5dX5IrM/maxresdefault.jpg');
   background-size: cover;
-  height: 100%;
-  width: 100%;
-  padding-bottom: 654px;
-  padding-top: 10px;
+  height: 100% !important;
+  width: 100% !important;
+  /*padding-top: 10px;*/
 }
 
-div.mi {
+.mi {
+  position: absolute;
   background: url('https://www.discotech.me/wp-content/uploads/2014/11/miami.jpg');
   background-size: cover;
-  height: 100%;
-  width: 100%;
-  padding-bottom: 654px;
-  padding-top: 10px;
+  height: 100% !important;
+  width: 100% !important;
 }
 
-div.de {
+.de {
+  position: absolute;
   background: url('http://www.blog.colormarketing.org/wp-content/uploads/2016/05/iStock_000083228293_Large.jpg');
   background-size: cover;
-  height: 100%;
-  width: 100%;
-  padding-bottom: 654px;
-  padding-top: 10px;
+  height: 100% !important;
+  width: 100% !important;
 }
 
-div.sf {
+.sf {
+  position: absolute;
   background: url('https://static.wixstatic.com/media/771898_bef8adf8d5ba490fb6b73043a3c97138.jpg_srz_1903_1189_85_22_0.50_1.20_0.00_jpg_srz');
   background-size: cover;
-  height: 100%;
-  width: 100%;
-  padding-bottom: 654px;
-  padding-top: 10px;
+  height: 100% !important;
+  width: 100% !important;
 }
 
-div.ci {
+.ci {
+  position: absolute;
   background: url('http://www.essexinn.com/d/essexinn/media/Attractions/3583017878_ee2e8e3d8b_b_1423674445483.jpg');
   background-size: cover;
-  height: 100%;
-  width: 100%;
-  padding-bottom: 654px;
-  padding-top: 10px;
+  height: 100% !important;
+  width: 100% !important;
 }
 
 select {
@@ -117,8 +112,8 @@ input.name {
   to { transform: rotate(360deg); }
 }
 
-div.todoModle {
-  hight: 100px;
+.todoModle {
+  height: 300px;
   width: 200px;
   border: 1px border solid black;
   overflow: scroll;
@@ -133,10 +128,15 @@ nav.weather {
   font-size: 20px;
   background: rgba(0,0,0,0.3);
 }
-nav.navBar {
+.navBar {
   position: absolute;
   left: 50%;
   top: 90%;
+}
+
+.navList {
+  display: flex;
+  flex-direction: row;
 }
 
 p {
@@ -150,8 +150,9 @@ h1 {
   color: white;
   font-size: 80px;
 }
-ul {
+ul.todoList {
   display: flex;
+  flex-direction: column;
   list-style: none;
 }
 
@@ -159,4 +160,13 @@ a {
   display: flex;
   margin-right: 20px;
   color: white;
+}
+
+li.todo {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+p.todoText {
+  padding: 10px;
 }

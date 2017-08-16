@@ -46,7 +46,7 @@ class SingleTodo extends Component {
     return (
       <li className="todo">
         <button onClick={() => {this.props.handleTodoDelete(this.props.todo.id)}}>X</button>
-        <p>{this.props.todo.notes}</p>
+        <p className="todoText">{this.props.todo.notes}</p>
         <button onClick={() => {
           this.setState({isBeingEdited: true})
         }}>Edit Todo</button>

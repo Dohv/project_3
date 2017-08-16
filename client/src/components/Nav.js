@@ -6,7 +6,7 @@ class Nav extends Component {
   render() {
     return (
       <nav className='navBar'>
-        <ul>
+        <ul className='navList'>
           <li><Link to="/Newyork">New York</Link></li>
           <li><Link to="/Miami">Miami</Link></li>
           <li><Link to="/Chicago">Chicago</Link></li>

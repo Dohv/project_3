@@ -4,7 +4,7 @@ import {
   Route, Link, Redirect,
 } from 'react-router-dom';
 import './App.css';
-import Logon from './components/Logon';
+import Logon from './components/Logon.js';
 
 
 
@@ -33,7 +33,7 @@ class App extends Component {
     this.fetchAllCities();
     this.fetchAllTodos();
   }
-
+1
   fetchAllTodos() {
     fetch('api/todo')
       .then((res) => {

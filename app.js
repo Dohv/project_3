@@ -37,10 +37,6 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/client/build/index.html');
 });
 
-
-
-
-
 /* handling 404 */
 app.get('*', function(req, res) {
   res.status(404).send({message: 'Oops! Not found.'});

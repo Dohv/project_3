@@ -23,7 +23,7 @@ class App extends Component {
       name: '',
       currCity: '',
       todoData: [],
-
+      link: this.currCity,
     }
      this.handleFormChange = this.handleFormChange.bind(this);
      this.setState = this.setState.bind(this);
@@ -33,7 +33,7 @@ class App extends Component {
     this.fetchAllCities();
     this.fetchAllTodos();
   }
-1
+
   fetchAllTodos() {
     fetch('api/todo')
       .then((res) => {

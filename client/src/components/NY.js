@@ -22,8 +22,8 @@ componentDidMount() {
   .then((response) => {
     return response.json();
   }).then((jsonResponse) => {
-    console.log(jsonResponse.main.temp);
-    console.log('test');
+    //console.log(jsonResponse.main.temp);
+    //console.log('test');
     this.setState({
       city: jsonResponse.name,
       min_temp: Math.floor ((jsonResponse.main.temp_min )),
@@ -37,7 +37,8 @@ componentDidMount() {
 
 
   render() {
-    console.log(this);
+    console.log(this.props);
+    //console.log(this);
     return (
       <div className='ny'>
       <Header  city={this.state.city} min={this.state.min_temp} max={this.state.max_temp} temp={this.state.curr_temp} desc={this.state.desc}/>

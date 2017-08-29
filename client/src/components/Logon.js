@@ -1,16 +1,34 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import {Redirect} from 'react-router';
 
 class Logon extends Component {
 
+  componentDidMount() {
+    const loginDiv = document.getElementById('login-form');
+    loginDiv.addEventListener('keydown', (event) => {
+      if (event.keyCode === 13) {
+        console.log('yay');
+        this.props.searchResult();
+       
+        //window.location.href = `/${this.props.currCity}`;
+          // return(<Router>
+          //         <Route path={`/${this.props.currCity}`}/>
+          //       </Router>)
+      }
+    });
+  }
 
   render () {
+    if(this.props.loginStatus) {
+      return(<Redirect to={`/${this.props.currCity}`} />)
+    }else {
     return (
       <div id='login'>
         <div className='layer'>
-          <form id='login-form' onSubmit={this.props.handleFormChange} >
-            <select name='city'>
+          <div id='login-form'>
+            <select name='city' onChange={this.props.handleCityChange}>
             <option>Select City</option>
             {this.props.cities.map((city) => {
               return (
@@ -25,12 +43,15 @@ class Logon extends Component {
             name='name' 
             placeholder='Name'
             className='name'
+            onChange={this.props.handleNameChange}
             />
-          </form>
-          <Link className='go' to={`/${this.props.currCity}`}>-></Link>
+          </div>
         </div>
+        
+            <Link className='go' to={`/${this.props.currCity}`}>-></Link>
       </div>
     )
+    }
   }
 }
 

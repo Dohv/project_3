@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
-  Route, Link, Redirect,
-} from 'react-router-dom';
+  Route} from 'react-router-dom';
 import './App.css';
 import Logon from './components/Logon.js';
 
@@ -16,22 +15,25 @@ import MI from './components/MI';
 
 
 class App extends Component {
-  constructor(props) {
+  constructor(props, context) {
     super(props);
     this.state = {
       cityData: [],
       name: '',
       currCity: '',
       todoData: [],
-      link: this.currCity,
+      loggedIn: false,
     }
-     this.handleFormChange = this.handleFormChange.bind(this);
+     this.handleCityChange = this.handleCityChange.bind(this);
+     this.handleNameChange = this.handleNameChange.bind(this);
+     this.searchResult = this.searchResult.bind(this);
      this.setState = this.setState.bind(this);
   }
 
   componentDidMount() {
     this.fetchAllCities();
     this.fetchAllTodos();
+    
   }
 
   fetchAllTodos() {
@@ -53,23 +55,40 @@ class App extends Component {
       }).then((resJson) => {
         this.setState({
           cityData: resJson.data.cities,
-          name: '',
           
         })
       });
   }
 
 
-   handleFormChange(event) {
-     console.log(event.target.name.value);
-     console.log(event.target.city.value);
-     event.preventDefault();
+   handleCityChange(event) {
+     console.log(event.target.value);
     this.setState({
-      name: event.target.name.value,
-      currCity: event.target.city.value,
-    })
+      currCity: event.target.value,
+    });
   }
 
+  handleNameChange(event) {
+    console.log(event.target.value);
+    this.setState({
+      name: event.target.value,
+    });
+  }
+
+ searchResult(event) {
+  this.setState({
+      loggedIn: true,
+    });
+  };
+
+
+
+  // componentDidUpdate() {
+  //   console.log(this.state);
+  //  // window.location.href = `/${this.state.currCity}`;
+  // }
+
+  
 
   seeState() {
     console.log(this.state.name);
@@ -81,7 +100,7 @@ class App extends Component {
     return (
        <Router>
           <div className="App">
-                <Route exact path="/" render={() => <Logon handleFormChange={this.handleFormChange} cities={this.state.cityData}  currCity={this.state.currCity}  seestate={this.seeState} route={this.selectCityRoute} />} /> 
+                <Route exact path="/" render={() => <Logon handleCityChange={this.handleCityChange} handleNameChange={this.handleNameChange} searchResult={this.searchResult} cities={this.state.cityData}  currCity={this.state.currCity} name={this.state.name} route={this.selectCityRoute} loginStatus={this.state.loggedIn}/>} /> 
               <main>
                 <Route  path="/NewYork" render={() => <NY cities={this.state.cityData} todos={this.state.todoData} name={this.state.name} currCity={this.state.currCity}  />} />
                 <Route  path="/SanFrancisco" render={() => <SF cities={this.state.cityData} todos={this.state.todoData} name={this.state.name} />} />

@@ -47,8 +47,6 @@ class Logon extends Component {
             />
           </div>
         </div>
-        
-            <Link className='go' to={`/${this.props.currCity}`}>-></Link>
       </div>
     )
     }

@@ -27,7 +27,6 @@ class App extends Component {
      this.handleCityChange = this.handleCityChange.bind(this);
      this.handleNameChange = this.handleNameChange.bind(this);
      this.searchResult = this.searchResult.bind(this);
-     this.setState = this.setState.bind(this);
   }
 
   componentDidMount() {
@@ -37,7 +36,7 @@ class App extends Component {
   }
 
   fetchAllTodos() {
-    fetch('api/todo')
+    fetch('http://localhost:3001/api/todo')
       .then((res) => {
         return res.json()
       }).then((resJson) => {
